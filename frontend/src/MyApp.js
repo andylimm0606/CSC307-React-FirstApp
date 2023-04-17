@@ -62,20 +62,6 @@ async function removeOneCharacter (index) {
     console.log(error);
     return false;
   }
-
-  // const response = await axios.delete('http://localhost:8000/users/' + characters[index].id);
-  // if (response.status === 204) {
-  //   const updated = characters.filter((character, i) => {
-  //     return i !== index;
-  //   });
-  //   setCharacters(updated);
-    
-  // }
-  
-  //const updated = characters.filter((character, i) => {
-  //  return i !== index
-  //});
-  //setCharacters(updated);
   
 }
 
