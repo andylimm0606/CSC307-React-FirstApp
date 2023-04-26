@@ -48,23 +48,17 @@ app.post('/users', async (req, res) => {
 
 //use Mongo db to replace below :
 
-app.delete('/users/:id', (req, res) => {
-    const id = req.params['id'];
-    let result = findUserById(id)
-    if (result == undefined || result.length == 0)
-        res.status(404).send('Resource not found.').end();
-    else{
-        let result = deleteUser(id);
-        result = {users_list : result};
+app.delete('/users/:id', async (req, res) => {
+    try{
+        const id = req.params['id'];
+        await userServices.deleteUser(id);
         res.status(204).end();
-        
+    } catch(error){
+        console.log(error)
+        res.status(404).send('Resource not found.');
     }
 
 });
-
-function deleteUser(id){
-    users['users_list'] = users['users_list'].filter( (user) => user.id != id );
-}
 
 
 app.listen(port, () => {

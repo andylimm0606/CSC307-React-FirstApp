@@ -50,7 +50,7 @@ async function removeOneCharacter (index) {
     const toDelete = characters.filter((character, i) => {
       return i === index
     });
-    axios.delete ('http://localhost:8000/users/' + toDelete[0].id);
+    axios.delete ('http://localhost:8000/users/' + toDelete[0]._id);
 
     const updated = characters.filter((character, i) => {
            return i !== index;
